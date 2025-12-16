@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Undangan Pernikahan Zen & Partner</title>
+    <title>Undangan Pernikahan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -42,15 +42,60 @@
   </head>
   <body class="bg-gray-100 min-h-screen font-primary text-center text-gray-800 overflow-hidden">
     
-    <div id="wedding-overlay">
-      <div class="text-center p-6">
-        <p class="font-secondary italic text-xl mb-4 text-[#D4AF37]">Hello, You are Invited</p>
-        <h2 class="font-secondary text-5xl mb-8">Zen & Partner</h2>
-        <button onclick="openInvitation()" class="bg-[#D4AF37] text-white px-8 py-3 rounded-full font-bold shadow-xl hover:bg-[#b8952e] transition-all">
-          <i class="fas fa-envelope-open mr-2"></i> Buka Undangan
+    <div id="wedding-overlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#1E293B] overflow-hidden">
+  
+      <div class="absolute top-0 left-0 w-40 md:w-64 opacity-40 pointer-events-none">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#D4AF37" d="M0,0 L100,0 C100,0 30,10 10,80 C5,120 0,150 0,200 Z" opacity="0.3"></path>
+          <path fill="#D4AF37" d="M0,0 L0,150 C20,100 50,50 150,0 Z"></path>
+        </svg>
+      </div>
+      <div class="absolute bottom-0 right-0 w-40 md:w-64 opacity-40 pointer-events-none rotate-180">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#D4AF37" d="M0,0 L100,0 C100,0 30,10 10,80 C5,120 0,150 0,200 Z" opacity="0.3"></path>
+          <path fill="#D4AF37" d="M0,0 L0,150 C20,100 50,50 150,0 Z"></path>
+        </svg>
+      </div>
+    
+      <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');"></div>
+    
+      <div class="relative z-10 text-center px-6 fade-in">
+        <div class="inline-block mb-6 relative">
+            <div class="absolute inset-0 bg-[#D4AF37] blur-2xl opacity-20 rounded-full"></div>
+            <i class="fas fa-heart text-[#D4AF37] text-3xl floating"></i>
+        </div>
+        
+        <p class="font-primary tracking-[0.4em] text-sm uppercase text-[#D4AF37] mb-6">The Wedding of</p>
+        
+        <h1 class="font-secondary text-5xl md:text-7xl text-white mb-2 leading-tight">
+            Zen <span class="text-[#D4AF37]">&</span> Partner
+        </h1>
+        
+        <div class="w-24 h-[1px] bg-[#D4AF37] mx-auto my-8 opacity-50"></div>
+    
+        <div class="mb-10 text-gray-300">
+            <p class="text-xs uppercase tracking-widest mb-2 opacity-70 font-primary">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+            <p class="text-xl font-secondary italic text-white">Tamu Undangan</p>
+        </div>
+    
+        <button onclick="openInvitation()" class="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-300 bg-transparent border-2 border-[#D4AF37] rounded-full hover:bg-[#D4AF37] hover:text-[#1E293B] overflow-hidden">
+          <span class="relative z-10 flex items-center gap-2 uppercase tracking-widest text-sm">
+            <i class="fas fa-envelope-open-text group-hover:rotate-12 transition-transform"></i>
+            Buka Undangan
+          </span>
+          <div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine"></div>
         </button>
       </div>
     </div>
+    
+    <style>
+      @keyframes shine {
+        100% { left: 125%; }
+      }
+      .animate-shine {
+        animation: shine 0.8s forwards;
+      }
+    </style>
 
     <div id="music-container" class="fixed bottom-6 left-6 z-50 hidden">
       <button onclick="toggleMusic()" class="music-control bg-[#1E293B] border-2 border-[#D4AF37] text-[#D4AF37] w-12 h-12 rounded-full shadow-2xl flex items-center justify-center">
