@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Undangan Pernikahan</title>
+    <title>Undangan Pernikahan Zen & Partner</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -44,50 +44,59 @@
     
     <div id="wedding-overlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#1E293B] overflow-hidden">
   
-      <div class="absolute top-0 left-0 w-40 md:w-64 opacity-40 pointer-events-none">
+      <div class="absolute top-0 left-0 w-64 md:w-96 opacity-20 pointer-events-none shadow-2xl">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#D4AF37" d="M0,0 L100,0 C100,0 30,10 10,80 C5,120 0,150 0,200 Z" opacity="0.3"></path>
-          <path fill="#D4AF37" d="M0,0 L0,150 C20,100 50,50 150,0 Z"></path>
+          <path fill="#D4AF37" d="M0,0 L150,0 C150,0 50,15 20,100 C10,150 0,180 0,200 Z"></path>
         </svg>
       </div>
-      <div class="absolute bottom-0 right-0 w-40 md:w-64 opacity-40 pointer-events-none rotate-180">
+      <div class="absolute bottom-0 right-0 w-64 md:w-96 opacity-20 pointer-events-none rotate-180">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#D4AF37" d="M0,0 L100,0 C100,0 30,10 10,80 C5,120 0,150 0,200 Z" opacity="0.3"></path>
-          <path fill="#D4AF37" d="M0,0 L0,150 C20,100 50,50 150,0 Z"></path>
+          <path fill="#D4AF37" d="M0,0 L150,0 C150,0 50,15 20,100 C10,150 0,180 0,200 Z"></path>
         </svg>
       </div>
     
-      <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');"></div>
-    
-      <div class="relative z-10 text-center px-6 fade-in">
-        <div class="inline-block mb-6 relative">
-            <div class="absolute inset-0 bg-[#D4AF37] blur-2xl opacity-20 rounded-full"></div>
-            <i class="fas fa-heart text-[#D4AF37] text-3xl floating"></i>
+      <div class="relative z-10 text-center px-4 max-w-2xl w-full">
+        
+        <div class="mb-8 fade-in" style="animation-delay: 0.2s">
+          <i class="fas fa-gem text-[#D4AF37] text-2xl mb-4 block"></i>
+          <p class="font-primary tracking-[0.5em] text-xs uppercase text-[#D4AF37] opacity-80">The Wedding Celebration of</p>
         </div>
-        
-        <p class="font-primary tracking-[0.4em] text-sm uppercase text-[#D4AF37] mb-6">The Wedding of</p>
-        
-        <h1 class="font-secondary text-5xl md:text-7xl text-white mb-2 leading-tight">
-            Zen <span class="text-[#D4AF37]">&</span> Partner
+    
+        <h1 class="font-secondary text-6xl md:text-8xl text-white mb-10 leading-none fade-in" style="animation-delay: 0.4s">
+            Zen <span class="text-[#D4AF37] italic font-light">&</span> Partner
         </h1>
-        
-        <div class="w-24 h-[1px] bg-[#D4AF37] mx-auto my-8 opacity-50"></div>
     
-        <div class="mb-10 text-gray-300">
-            <p class="text-xs uppercase tracking-widest mb-2 opacity-70 font-primary">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-            <p class="text-xl font-secondary italic text-white">Tamu Undangan</p>
+        <div class="flex items-center justify-center gap-6 mb-12 fade-in" style="animation-delay: 0.6s">
+          <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
+          <div class="text-white">
+            <p class="font-secondary text-4xl md:text-5xl font-bold tracking-tighter">20 <span class="text-[#D4AF37]">/</span> 03 <span class="text-[#D4AF37]">/</span> 2026</p>
+            <p class="font-primary text-[10px] uppercase tracking-[0.6em] mt-2 text-[#D4AF37]">Friday Evening</p>
+          </div>
+          <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
         </div>
     
-        <button onclick="openInvitation()" class="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-300 bg-transparent border-2 border-[#D4AF37] rounded-full hover:bg-[#D4AF37] hover:text-[#1E293B] overflow-hidden">
-          <span class="relative z-10 flex items-center gap-2 uppercase tracking-widest text-sm">
-            <i class="fas fa-envelope-open-text group-hover:rotate-12 transition-transform"></i>
-            Buka Undangan
-          </span>
-          <div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine"></div>
-        </button>
-      </div>
-    </div>
+        <div class="mb-12 fade-in" style="animation-delay: 0.8s">
+          <p class="text-[11px] uppercase tracking-[0.3em] mb-4 text-gray-400 font-primary">Special Invitation To:</p>
+          <h2 class="text-3xl md:text-4xl font-secondary italic text-white border-b border-[#D4AF37]/30 inline-block pb-2 px-10">
+            Nama Tamu Undangan
+          </h2>
+        </div>
     
+        <div class="fade-in" style="animation-delay: 1s">
+          <button onclick="openInvitation()" class="group relative px-12 py-4 bg-[#D4AF37] text-[#1E293B] font-bold rounded-full transition-all duration-500 hover:bg-white hover:scale-105 shadow-[0_0_30px_rgba(212,175,55,0.3)]">
+            <span class="relative z-10 flex items-center gap-3 uppercase tracking-widest text-sm">
+              <i class="fas fa-envelope-open-text text-lg"></i>
+              Open Invitation
+            </span>
+          </button>
+          <p class="mt-6 text-[10px] text-gray-500 uppercase tracking-widest italic font-primary">Klik untuk membuka</p>
+        </div>
+    
+      </div>
+    
+      <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
+    </div>
+
     <style>
       @keyframes shine {
         100% { left: 125%; }
@@ -105,6 +114,45 @@
         <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg" />
       </audio>
     </div>
+
+    <section
+    class="relative overflow-hidden flex flex-col items-center justify-center pt-28 pb-20 px-5 bg-[#FDFBF7]"
+  >
+    <div class="fade-in flex gap-4 mt-10 mb-5 text-[#1E293B]" id="countdown">
+      <div
+        class="flex flex-col items-center bg-white border border-[#D4AF37]/20 p-3 rounded-xl min-w-[70px] shadow-sm"
+      >
+        <span id="days" class="text-2xl font-bold">00</span>
+        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37]"
+          >Hari</span
+        >
+      </div>
+      <div
+        class="flex flex-col items-center bg-white border border-[#D4AF37]/20 p-3 rounded-xl min-w-[70px] shadow-sm"
+      >
+        <span id="hours" class="text-2xl font-bold">00</span>
+        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37]"
+          >Jam</span
+        >
+      </div>
+      <div
+        class="flex flex-col items-center bg-white border border-[#D4AF37]/20 p-3 rounded-xl min-w-[70px] shadow-sm"
+      >
+        <span id="minutes" class="text-2xl font-bold">00</span>
+        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37]"
+          >Menit</span
+        >
+      </div>
+      <div
+        class="flex flex-col items-center bg-[#D4AF37] border border-[#D4AF37] p-3 rounded-xl min-w-[70px] shadow-sm"
+      >
+        <span id="seconds" class="text-2xl font-bold text-white">00</span>
+        <span class="text-[10px] uppercase tracking-widest text-white"
+          >Detik</span
+        >
+      </div>
+    </div>
+  </section>
 
     <section
     class="relative overflow-hidden flex flex-col items-center justify-center pt-28 pb-20 px-5 bg-[#FDFBF7]"
@@ -161,7 +209,7 @@
       <div
         class="absolute -bottom-4 -right-4 bg-[#1E293B] text-white p-4 rounded-full w-20 h-20 flex flex-col items-center justify-center shadow-lg border-2 border-[#D4AF37] floating"
       >
-        <span class="text-[10px] uppercase tracking-tighter">Dec</span>
+        <span class="text-[10px] uppercase tracking-tighter">Mar</span>
         <span class="text-xl font-bold">20</span>
         <span class="text-[10px] uppercase tracking-tighter">2025</span>
       </div>
@@ -224,8 +272,8 @@
           >
             Hari & Tanggal
           </h3>
-          <p class="text-gray-700 text-lg">Sabtu</p>
-          <p class="text-[#D4AF37] font-bold text-xl">20 Desember 2025</p>
+          <p class="text-gray-700 text-lg">Jumat</p>
+          <p class="text-[#D4AF37] font-bold text-xl">20 Maret 2026</p>
         </div>
 
         <div
@@ -241,7 +289,7 @@
           >
             Waktu Acara
           </h3>
-          <p class="text-gray-700 text-lg">Pukul 19:00 WIB</p>
+          <p class="text-gray-700 text-lg">Pukul 09:00 WIB</p>
           <p class="text-[#D4AF37] font-bold">Sampai Selesai</p>
         </div>
 
@@ -330,7 +378,7 @@
       </a>
 
       <p class="mt-6 text-xs text-gray-400 italic font-primary">
-        Mohon konfirmasi kehadiran sebelum 10 Desember 2025
+        Mohon konfirmasi kehadiran sebelum 10 Maret 2026
       </p>
     </div>
   </section>
@@ -387,7 +435,7 @@
       }
 
       // COUNTDOWN SCRIPT
-      const weddingDate = new Date("Dec 20, 2025 19:00:00").getTime();
+      const weddingDate = new Date("Mar 20, 2026 09:00:00").getTime();
       setInterval(function () {
         const now = new Date().getTime();
         const distance = weddingDate - now;
