@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Undangan Pernikahan Zen & Partner</title>
+    <title>Undangan Pernikahan Zen & Srii</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -63,7 +63,7 @@
         </div>
     
         <h1 class="font-secondary text-6xl md:text-8xl text-white mb-10 leading-none fade-in" style="animation-delay: 0.4s">
-            Zen <span class="text-[#D4AF37] italic font-light">&</span> Partner
+            Zen <span class="text-[#D4AF37] italic font-light">&</span> Srii
         </h1>
     
         <div class="flex items-center justify-center gap-6 mb-12 fade-in" style="animation-delay: 0.6s">
@@ -179,12 +179,12 @@
       <h1
         class="font-secondary text-6xl md:text-8xl text-[#1E293B] leading-tight"
       >
-        Zen
+        Zaenal Arifin
         <span
           class="block md:inline text-[#D4AF37] font-light italic my-2 md:my-0"
           >&</span
         >
-        Partner
+        Sri Wandasari
       </h1>
     </div>
 
@@ -396,7 +396,7 @@
       ></i>
     </div>
     <p class="font-secondary text-2xl text-[#1E293B] mb-2">
-      Zen <span class="text-[#D4AF37]">&</span> Partner
+      Zen <span class="text-[#D4AF37]">&</span> Srii
     </p>
     <p class="text-xs tracking-[0.2em] text-gray-400 uppercase">
       © 2025 Exclusive Wedding Invitation
@@ -441,7 +441,9 @@
         const distance = weddingDate - now;
         document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
         document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+        
       }, 1000);
     </script>
   </body>
