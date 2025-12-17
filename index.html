@@ -13,7 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
       .font-primary {
         font-family: "Poppins", sans-serif;
@@ -130,71 +130,76 @@
         </svg>
       </div>
 
-      <div class="relative z-10 text-center px-4 max-w-2xl w-full">
-        <div class="mb-8 fade-in" style="animation-delay: 0.2s">
-          <i class="fas fa-gem text-[#D4AF37] text-2xl mb-4 block"></i>
-          <p
-            class="font-primary tracking-[0.5em] text-xs uppercase text-[#D4AF37] opacity-80"
-          >
-            The Wedding Celebration of
-          </p>
-        </div>
+<div class="relative z-10 text-center px-4 max-w-2xl w-full">
 
-        <h1
-          class="font-secondary text-6xl md:text-8xl text-white mb-10 leading-none fade-in"
-          style="animation-delay: 0.4s"
-        >
-          Zen <span class="text-[#D4AF37] italic font-light">&</span> Srii
-        </h1>
+  <!-- Judul Undangan -->
+  <h1 class="text-8xl md:text-[10rem] text-[#D4AF37] mb-4 fade-in"
+      style="animation-delay: 0.2s; font-family: 'Pinyon Script', cursive; font-weight: 400; line-height: 1.2; padding-bottom: 10px;">
+    Undangan
+  </h1>
 
-        <div
-          class="flex items-center justify-center gap-6 mb-6 fade-in"
-          style="animation-delay: 0.6s"
-        >
-          <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
-          <div class="text-white">
-            <p
-              class="font-secondary text-4xl md:text-5xl font-bold tracking-tighter"
-            >
-              20 <span class="text-[#D4AF37]">/</span> 03
-              <span class="text-[#D4AF37]">/</span> 2026
-            </p>
-            <p
-              class="font-primary text-[10px] uppercase tracking-[0.6em] mt-2 text-[#D4AF37]"
-            >
-              Friday Evening
-            </p>
-          </div>
-          <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
-        </div>
+  <!-- Bismillah -->
+  <p class="font-primary text-2xl md:text-3xl text-[#D4AF37] mb-6 fade-in italic"
+     style="animation-delay: 0.4s">
+    بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
+  </p>
 
-        <!-- Tambahan teks undangan umum -->
-        <div class="fade-in mb-8" style="animation-delay: 0.8s">
-          <p class="text-[#D4AF37] text-xs md:text-sm italic font-primary">
-            Dengan segala kerendahan hati, kami mengundang Bapak/Ibu/Saudara/i
-            untuk hadir dalam acara pernikahan kami.
-          </p>
-        </div>
+  <!-- Undangan umum -->
+  <div class="fade-in mb-8" style="animation-delay: 1.2s">
+    <p class="text-[#D4AF37] text-xs md:text-sm italic font-primary">
+      Dengan segala kerendahan hati, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan kami.
+    </p>
+  </div>
 
-        <div class="fade-in" style="animation-delay: 1s">
-          <button
-            onclick="openInvitation()"
-            class="group relative px-12 py-4 bg-[#D4AF37] text-[#1E293B] font-bold rounded-full transition-all duration-500 hover:bg-white hover:scale-105 shadow-[0_0_30px_rgba(212,175,55,0.3)]"
-          >
-            <span
-              class="relative z-10 flex items-center gap-3 uppercase tracking-widest text-sm"
-            >
-              <i class="fas fa-envelope-open-text text-lg"></i>
-              Buka Undangan
-            </span>
-          </button>
-          <p
-            class="mt-6 text-[10px] text-gray-500 uppercase tracking-widest italic font-primary"
-          >
-            Klik untuk membuka
-          </p>
-        </div>
-      </div>
+  <!-- Nama Pasangan -->
+  <h1 class="font-secondary text-6xl md:text-8xl text-white mb-10 leading-none fade-in"
+      style="animation-delay: 0.8s">
+    Zen <span class="text-[#D4AF37] italic font-light">&</span> Srii
+  </h1>
+
+  <!-- Informasi acara -->
+  <div class="fade-in mb-8" style="animation-delay: 1.2s">
+    <p class="text-[#D4AF37] text-xs md:text-sm italic font-primary">
+      Yang akan dilaksanakan pada:
+    </p>
+  </div>
+
+  <!-- Tanggal Acara -->
+  <div class="flex items-center justify-center gap-6 mb-6 fade-in" style="animation-delay: 1s">
+    <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
+    <div class="text-white">
+      <p class="font-secondary text-4xl md:text-5xl font-bold tracking-tighter">
+        20 <span class="text-[#D4AF37]">/</span> 03 <span class="text-[#D4AF37]">/</span> 2026
+      </p>
+      <p class="font-primary text-[10px] uppercase tracking-[0.6em] mt-2 text-[#D4AF37]">
+        Jumat
+      </p>
+    </div>
+    <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
+  </div>
+
+  <!-- Undangan umum tambahan -->
+  <div class="fade-in mb-8" style="animation-delay: 1.2s">
+    <p class="text-[#D4AF37] text-xs md:text-sm italic font-primary">
+      Merupakan suatu kehormatan Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do'a restu kepada kedua mempelai.
+    </p>
+  </div>
+
+  <!-- Tombol Buka Undangan -->
+  <div class="fade-in" style="animation-delay: 1.4s">
+    <button onclick="openInvitation()"
+            class="group relative px-12 py-4 bg-[#D4AF37] text-[#1E293B] font-bold rounded-full transition-all duration-500 hover:bg-white hover:scale-105 shadow-[0_0_30px_rgba(212,175,55,0.3)]">
+      <span class="relative z-10 flex items-center gap-3 uppercase tracking-widest text-sm">
+        <i class="fas fa-envelope-open-text text-lg"></i>
+        Buka Undangan
+      </span>
+    </button>
+    <p class="mt-6 text-[10px] text-gray-500 uppercase tracking-widest italic font-primary">
+      Klik untuk membuka
+    </p>
+  </div>
+
+</div>
 
       <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
     </div>
