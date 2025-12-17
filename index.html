@@ -5,12 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Undangan Pernikahan Zen & Srii</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
     <style>
-      .font-primary { font-family: "Poppins", sans-serif; }
-      .font-secondary { font-family: "Playfair Display", serif; }
+      .font-primary {
+        font-family: "Poppins", sans-serif;
+      }
+      .font-secondary {
+        font-family: "Playfair Display", serif;
+      }
 
       /* Overlay Sampul */
       #wedding-overlay {
@@ -23,591 +33,849 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        transition: transform 1s ease-in-out;
+        transition: transform 1s ease-in-out, opacity 1s ease-in-out;
       }
 
       /* Animasi Tombol Musik */
       @keyframes pulse-gold {
-        0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
-        50% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+        }
+        50% {
+          transform: scale(1.1);
+          box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+        }
       }
-      .music-control { animation: pulse-gold 2s infinite; }
+      .music-control {
+        animation: pulse-gold 2s infinite;
+      }
 
-      .fade-in { opacity: 0; transform: translateY(20px); animation: fadeInUp 1s forwards; }
-      @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s forwards;
+      }
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-      .floating { animation: float 5s ease-in-out infinite; }
-      @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-15px) rotate(3deg); } }
-    </style>
-        <style>
+      .floating {
+        animation: float 5s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-15px) rotate(3deg);
+        }
+      }
       @keyframes shine {
-        100% { left: 125%; }
+        100% {
+          left: 125%;
+        }
       }
       .animate-shine {
         animation: shine 0.8s forwards;
       }
-        /* Tambahkan ini di dalam tag <style> kamu */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-  }
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Perbaikan teks Arab agar lebih rapi di mobile */
-  .rtl { direction: rtl; font-family: 'Amiri', serif; }
-    </style>
+      /* Tambahkan ini di dalam tag <style> kamu */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
+      /* Perbaikan teks Arab agar lebih rapi di mobile */
+      .rtl {
+        direction: rtl;
+        font-family: "Amiri", serif;
+      }
+    </style>
   </head>
-  <body class="bg-gray-100 min-h-screen font-primary text-center text-gray-800 overflow-hidden">
-    
-    <div id="wedding-overlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#1E293B] overflow-hidden">
-  
-      <div class="absolute top-0 left-0 w-64 md:w-96 opacity-20 pointer-events-none shadow-2xl">
+  <body
+    class="bg-gray-100 min-h-screen font-primary text-center text-gray-800 overflow-hidden"
+  >
+    <div
+      id="wedding-overlay"
+      class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#1E293B] overflow-hidden"
+    >
+      <div
+        class="absolute top-0 left-0 w-64 md:w-96 opacity-20 pointer-events-none shadow-2xl"
+      >
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#D4AF37" d="M0,0 L150,0 C150,0 50,15 20,100 C10,150 0,180 0,200 Z"></path>
+          <path
+            fill="#D4AF37"
+            d="M0,0 L150,0 C150,0 50,15 20,100 C10,150 0,180 0,200 Z"
+          ></path>
         </svg>
       </div>
-      <div class="absolute bottom-0 right-0 w-64 md:w-96 opacity-20 pointer-events-none rotate-180">
+      <div
+        class="absolute bottom-0 right-0 w-64 md:w-96 opacity-20 pointer-events-none rotate-180"
+      >
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#D4AF37" d="M0,0 L150,0 C150,0 50,15 20,100 C10,150 0,180 0,200 Z"></path>
+          <path
+            fill="#D4AF37"
+            d="M0,0 L150,0 C150,0 50,15 20,100 C10,150 0,180 0,200 Z"
+          ></path>
         </svg>
       </div>
-    
+
       <div class="relative z-10 text-center px-4 max-w-2xl w-full">
-        
         <div class="mb-8 fade-in" style="animation-delay: 0.2s">
           <i class="fas fa-gem text-[#D4AF37] text-2xl mb-4 block"></i>
-          <p class="font-primary tracking-[0.5em] text-xs uppercase text-[#D4AF37] opacity-80">The Wedding Celebration of</p>
+          <p
+            class="font-primary tracking-[0.5em] text-xs uppercase text-[#D4AF37] opacity-80"
+          >
+            The Wedding Celebration of
+          </p>
         </div>
-    
-        <h1 class="font-secondary text-6xl md:text-8xl text-white mb-10 leading-none fade-in" style="animation-delay: 0.4s">
-            Zen <span class="text-[#D4AF37] italic font-light">&</span> Srii
+
+        <h1
+          class="font-secondary text-6xl md:text-8xl text-white mb-10 leading-none fade-in"
+          style="animation-delay: 0.4s"
+        >
+          Zen <span class="text-[#D4AF37] italic font-light">&</span> Srii
         </h1>
-    
-        <div class="flex items-center justify-center gap-6 mb-12 fade-in" style="animation-delay: 0.6s">
+
+        <div
+          class="flex items-center justify-center gap-6 mb-12 fade-in"
+          style="animation-delay: 0.6s"
+        >
           <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
           <div class="text-white">
-            <p class="font-secondary text-4xl md:text-5xl font-bold tracking-tighter">20 <span class="text-[#D4AF37]">/</span> 03 <span class="text-[#D4AF37]">/</span> 2026</p>
-            <p class="font-primary text-[10px] uppercase tracking-[0.6em] mt-2 text-[#D4AF37]">Friday Evening</p>
+            <p
+              class="font-secondary text-4xl md:text-5xl font-bold tracking-tighter"
+            >
+              20 <span class="text-[#D4AF37]">/</span> 03
+              <span class="text-[#D4AF37]">/</span> 2026
+            </p>
+            <p
+              class="font-primary text-[10px] uppercase tracking-[0.6em] mt-2 text-[#D4AF37]"
+            >
+              Friday Evening
+            </p>
           </div>
           <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
         </div>
-    
 
-    
         <div class="fade-in" style="animation-delay: 1s">
-          <button onclick="openInvitation()" class="group relative px-12 py-4 bg-[#D4AF37] text-[#1E293B] font-bold rounded-full transition-all duration-500 hover:bg-white hover:scale-105 shadow-[0_0_30px_rgba(212,175,55,0.3)]">
-            <span class="relative z-10 flex items-center gap-3 uppercase tracking-widest text-sm">
+          <button
+            onclick="openInvitation()"
+            class="group relative px-12 py-4 bg-[#D4AF37] text-[#1E293B] font-bold rounded-full transition-all duration-500 hover:bg-white hover:scale-105 shadow-[0_0_30px_rgba(212,175,55,0.3)]"
+          >
+            <span
+              class="relative z-10 flex items-center gap-3 uppercase tracking-widest text-sm"
+            >
               <i class="fas fa-envelope-open-text text-lg"></i>
               Buka Undangan
             </span>
           </button>
-          <p class="mt-6 text-[10px] text-gray-500 uppercase tracking-widest italic font-primary">Klik untuk membuka</p>
+          <p
+            class="mt-6 text-[10px] text-gray-500 uppercase tracking-widest italic font-primary"
+          >
+            Klik untuk membuka
+          </p>
         </div>
-    
       </div>
-    
+
       <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
     </div>
 
-
-
     <div id="music-container" class="fixed bottom-6 left-6 z-50 hidden">
-      <button onclick="toggleMusic()" class="music-control bg-[#1E293B] border-2 border-[#D4AF37] text-[#D4AF37] w-12 h-12 rounded-full shadow-2xl flex items-center justify-center">
+      <button
+        onclick="toggleMusic()"
+        class="music-control bg-[#1E293B] border-2 border-[#D4AF37] text-[#D4AF37] w-12 h-12 rounded-full shadow-2xl flex items-center justify-center"
+      >
         <i id="music-icon" class="fas fa-pause"></i>
       </button>
       <audio id="bg-music" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg" />
+        <source
+          src="https://www.bensound.com/bensound-music/bensound-love.mp3"
+          type="audio/mpeg"
+        />
       </audio>
     </div>
 
     <section
-    class="relative overflow-hidden flex flex-col items-center justify-center pt-28 pb-20 px-5 bg-[#FDFBF7]"
-  >
-    <div class="fade-in flex gap-4 mt-10 mb-5 text-[#1E293B]" id="countdown">
-      <div
-        class="flex flex-col items-center bg-white border border-[#D4AF37]/20 p-3 rounded-xl min-w-[70px] shadow-sm"
-      >
-        <span id="days" class="text-2xl font-bold">00</span>
-        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37]"
-          >Hari</span
+      class="relative overflow-hidden flex flex-col items-center justify-center pt-28 pb-20 px-5 bg-[#FDFBF7]"
+    >
+      <div class="fade-in flex gap-4 mt-10 mb-5 text-[#1E293B]" id="countdown">
+        <div
+          class="flex flex-col items-center bg-white border border-[#D4AF37]/20 p-3 rounded-xl min-w-[70px] shadow-sm"
         >
-      </div>
-      <div
-        class="flex flex-col items-center bg-white border border-[#D4AF37]/20 p-3 rounded-xl min-w-[70px] shadow-sm"
-      >
-        <span id="hours" class="text-2xl font-bold">00</span>
-        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37]"
-          >Jam</span
+          <span id="days" class="text-2xl font-bold">00</span>
+          <span class="text-[10px] uppercase tracking-widest text-[#D4AF37]"
+            >Hari</span
+          >
+        </div>
+        <div
+          class="flex flex-col items-center bg-white border border-[#D4AF37]/20 p-3 rounded-xl min-w-[70px] shadow-sm"
         >
-      </div>
-      <div
-        class="flex flex-col items-center bg-white border border-[#D4AF37]/20 p-3 rounded-xl min-w-[70px] shadow-sm"
-      >
-        <span id="minutes" class="text-2xl font-bold">00</span>
-        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37]"
-          >Menit</span
+          <span id="hours" class="text-2xl font-bold">00</span>
+          <span class="text-[10px] uppercase tracking-widest text-[#D4AF37]"
+            >Jam</span
+          >
+        </div>
+        <div
+          class="flex flex-col items-center bg-white border border-[#D4AF37]/20 p-3 rounded-xl min-w-[70px] shadow-sm"
         >
-      </div>
-      <div
-        class="flex flex-col items-center bg-[#D4AF37] border border-[#D4AF37] p-3 rounded-xl min-w-[70px] shadow-sm"
-      >
-        <span id="seconds" class="text-2xl font-bold text-white">00</span>
-        <span class="text-[10px] uppercase tracking-widest text-white"
-          >Detik</span
+          <span id="minutes" class="text-2xl font-bold">00</span>
+          <span class="text-[10px] uppercase tracking-widest text-[#D4AF37]"
+            >Menit</span
+          >
+        </div>
+        <div
+          class="flex flex-col items-center bg-[#D4AF37] border border-[#D4AF37] p-3 rounded-xl min-w-[70px] shadow-sm"
         >
+          <span id="seconds" class="text-2xl font-bold text-white">00</span>
+          <span class="text-[10px] uppercase tracking-widest text-white"
+            >Detik</span
+          >
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
     <section
-    class="relative overflow-hidden flex flex-col items-center justify-center pt-28 pb-20 px-5 bg-[#FDFBF7]"
-  >
-    <div
-      class="absolute top-0 left-0 w-32 h-32 opacity-20 pointer-events-none"
+      class="relative overflow-hidden flex flex-col items-center justify-center pt-28 pb-20 px-5 bg-[#FDFBF7]"
     >
-      <i class="fas fa-leaf text-6xl text-[#D4AF37] rotate-90"></i>
-    </div>
-    <div
-      class="absolute top-0 right-0 w-32 h-32 opacity-20 pointer-events-none"
-    >
-      <i class="fas fa-leaf text-6xl text-[#D4AF37] -rotate-180"></i>
-    </div>
-
-    <div class="fade-in mb-4" style="--delay: 0.2s">
-      <span
-        class="uppercase tracking-[0.3em] text-sm font-semibold text-[#D4AF37] border-b border-[#D4AF37] pb-2"
-        >The Wedding Celebration</span
-      >
-    </div>
-
-<div class="fade-in text-center mb-10 px-4" style="--delay: 0.4s">
-  <div class="mb-6">
-    <h1 class="font-secondary text-5xl md:text-7xl text-[#1E293B] leading-tight">
-      Zaenal Arifin
-    </h1>
-    <p class="font-primary text-sm md:text-base text-gray-500 mt-2">
-      Putra dari <span class="text-[#1E293B] font-semibold">Bapak Nana </span> & <span class="text-[#1E293B] font-semibold"> Ibu Edah</span>
-    </p>
-  </div>
-
-  <div class="my-4">
-    <span class="font-secondary text-[#D4AF37] text-4xl md:text-6xl font-light italic">&</span>
-  </div>
-
-  <div class="mt-6">
-    <h1 class="font-secondary text-5xl md:text-7xl text-[#1E293B] leading-tight">
-      Neng Sri Wandasari
-    </h1>
-<p class="font-primary text-sm md:text-base text-gray-500 mt-2">
-  Putri dari <span class="text-[#1E293B] font-semibold">Alm. Bapak Oman</span> & <span class="text-[#1E293B] font-semibold">Almh. Ibu Enas</span>
-</p>
-  </div>
-</div>
-
-<div class="fade-in relative group" style="--delay: 0.6s">
-  <div
-    class="absolute -inset-4 border-2 border-[#D4AF37] rounded-full opacity-30 group-hover:scale-105 transition-transform duration-700"
-  ></div>
-  <div
-    class="absolute -inset-2 border border-[#D4AF37] rounded-full opacity-50"
-  ></div>
-
-  <div
-    class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-white shadow-2xl"
-  >
-    <img
-      src="sampul.jpeg"
-      alt="Foto Pasangan"
-      class="w-full h-full object-cover object-top md:object-top transform hover:scale-103 transition-transform duration-1000"
-    />
-  </div>
-
-  <div
-    class="absolute -bottom-4 -right-4 bg-[#1E293B] text-white p-4 rounded-full w-20 h-20 flex flex-col items-center justify-center shadow-lg border-2 border-[#D4AF37] floating"
-  >
-    <span class="text-[10px] uppercase tracking-tighter">Mar</span>
-    <span class="text-xl font-bold">20</span>
-    <span class="text-[10px] uppercase tracking-tighter">2026</span>
-  </div>
-</div>
-
-
-    <div class="fade-in mt-16 text-center max-w-lg" style="--delay: 0.8s">
-      <p
-        class="text-gray-600 leading-relaxed italic font-secondary text-lg mb-8"
-      >
-        "Menjemput ridho Allah SWT, kami bermaksud mengukir janji suci dalam
-        ikatan pernikahan."
-      </p>
-
-      <div class="inline-flex items-center gap-4 text-[#1E293B]">
-        <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
-        <div
-          class="font-primary tracking-[0.2em] uppercase text-sm font-bold"
-        >
-          Save The Date
-        </div>
-        <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
-      </div>
-
-      <div class="mt-6 text-[#D4AF37] animate-bounce">
-        <i class="fas fa-chevron-down"></i>
-      </div>
-    </div>
-  </section>
-
-  <section class="fade-in py-20 px-5 bg-white relative">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 opacity-5">
-      <i class="fas fa-dizzy text-[20rem] text-[#D4AF37]"></i>
-    </div>
-
-    <div class="relative z-10">
-      <h2
-        class="text-4xl md:text-5xl font-secondary font-bold text-[#1E293B] mb-4"
-      >
-        Informasi Acara
-      </h2>
-      <div class="flex justify-center items-center gap-3 mb-12">
-        <div class="h-[1px] w-8 bg-[#D4AF37]"></div>
-        <i class="fas fa-ring text-[#D4AF37]"></i>
-        <div class="h-[1px] w-8 bg-[#D4AF37]"></div>
-      </div>
-
       <div
-        class="flex flex-col md:flex-row justify-center gap-8 max-w-6xl mx-auto"
+        class="absolute top-0 left-0 w-32 h-32 opacity-20 pointer-events-none"
       >
-        <div
-          class="bg-[#FDFBF7] border border-[#D4AF37]/30 flex flex-col items-center p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 group"
-        >
-          <div
-            class="w-16 h-16 bg-[#1E293B] rounded-full flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform"
-          >
-            <i class="fas fa-calendar-day text-2xl text-[#D4AF37]"></i>
-          </div>
-          <h3
-            class="text-xl font-secondary font-bold text-[#1E293B] mb-2 uppercase tracking-widest"
-          >
-            Hari & Tanggal
-          </h3>
-          <p class="text-gray-700 text-lg">Jumat</p>
-          <p class="text-[#D4AF37] font-bold text-xl">20 Maret 2026</p>
-        </div>
+        <i class="fas fa-leaf text-6xl text-[#D4AF37] rotate-90"></i>
+      </div>
+      <div
+        class="absolute top-0 right-0 w-32 h-32 opacity-20 pointer-events-none"
+      >
+        <i class="fas fa-leaf text-6xl text-[#D4AF37] -rotate-180"></i>
+      </div>
 
-        <div
-          class="bg-[#FDFBF7] border border-[#D4AF37]/30 flex flex-col items-center p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 group"
+      <div class="fade-in mb-4" style="--delay: 0.2s">
+        <span
+          class="uppercase tracking-[0.3em] text-sm font-semibold text-[#D4AF37] border-b border-[#D4AF37] pb-2"
+          >The Wedding Celebration</span
         >
-          <div
-            class="w-16 h-16 bg-[#1E293B] rounded-full flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform"
-          >
-            <i class="fas fa-clock text-2xl text-[#D4AF37]"></i>
-          </div>
-          <h3
-            class="text-xl font-secondary font-bold text-[#1E293B] mb-2 uppercase tracking-widest"
-          >
-            Waktu Acara
-          </h3>
-          <p class="text-gray-700 text-lg">Pukul 09:00 WIB</p>
-          <p class="text-[#D4AF37] font-bold">Sampai Selesai</p>
-        </div>
+      </div>
 
-        <div
-          class="bg-[#FDFBF7] border border-[#D4AF37]/30 flex flex-col items-center p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 group"
-        >
-          <div
-            class="w-16 h-16 bg-[#1E293B] rounded-full flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform"
+      <div class="fade-in text-center mb-10 px-4" style="--delay: 0.4s">
+        <div class="mb-6">
+          <h1
+            class="font-secondary text-5xl md:text-7xl text-[#1E293B] leading-tight"
           >
-            <i class="fas fa-map-marked-alt text-2xl text-[#D4AF37]"></i>
-          </div>
-          <h3
-            class="text-xl font-secondary font-bold text-[#1E293B] mb-2 uppercase tracking-widest"
-          >
-            Lokasi Acara
-          </h3>
-          <p class="text-gray-700 text-lg font-bold">
-            Gedung Serbaguna Contoh
+            Zaenal Arifin
+          </h1>
+          <p class="font-primary text-sm md:text-base text-gray-500 mt-2">
+            Putra dari
+            <span class="text-[#1E293B] font-semibold">Bapak Nana </span> &
+            <span class="text-[#1E293B] font-semibold"> Ibu Edah</span>
           </p>
-          <p class="text-gray-500 text-sm italic">
-            Jl. Contoh No.123, Jakarta
+        </div>
+
+        <div class="my-4">
+          <span
+            class="font-secondary text-[#D4AF37] text-4xl md:text-6xl font-light italic"
+            >&</span
+          >
+        </div>
+
+        <div class="mt-6">
+          <h1
+            class="font-secondary text-5xl md:text-7xl text-[#1E293B] leading-tight"
+          >
+            Neng Sri Wandasari
+          </h1>
+          <p class="font-primary text-sm md:text-base text-gray-500 mt-2">
+            Putri dari
+            <span class="text-[#1E293B] font-semibold">Alm. Bapak Oman</span> &
+            <span class="text-[#1E293B] font-semibold">Almh. Ibu Enas</span>
           </p>
         </div>
       </div>
 
-      <div class="mt-12">
-        <a
-          href="#"
-          target="_blank"
-          class="inline-flex items-center gap-2 bg-[#1E293B] text-[#D4AF37] border border-[#D4AF37] font-semibold py-3 px-10 rounded-full hover:bg-[#D4AF37] hover:text-white transition-all duration-300"
+      <div class="fade-in relative group" style="--delay: 0.6s">
+        <div
+          class="absolute -inset-4 border-2 border-[#D4AF37] rounded-full opacity-30 group-hover:scale-105 transition-transform duration-700"
+        ></div>
+        <div
+          class="absolute -inset-2 border border-[#D4AF37] rounded-full opacity-50"
+        ></div>
+
+        <div
+          class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-white shadow-2xl"
         >
-          <i class="fas fa-location-arrow"></i> Buka Google Maps
-        </a>
-      </div>
-    </div>
-  </section>
-
-
-<section class="fade-in py-24 px-5 bg-[#FDFBF7] relative overflow-hidden">
-  
-  <div class="absolute -top-20 -left-20 w-80 h-80 opacity-[0.05] pointer-events-none">
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#D4AF37" d="M44.7,-76.4C58.1,-69.2,69.2,-58.1,76.4,-44.7C83.7,-31.3,87.1,-15.7,85.8,-0.7C84.6,14.3,78.7,28.6,70.1,41.4C61.5,54.2,50.1,65.6,36.6,72.8C23.1,80,7.5,83.1,-8.3,81.6C-24.1,80.1,-40.1,74,-53.4,63.6C-66.7,53.2,-77.3,38.5,-82.1,22.3C-86.9,6.1,-85.9,-11.6,-79.8,-27.6C-73.7,-43.6,-62.5,-57.9,-48.9,-65.3C-35.3,-72.7,-19.3,-73.2,-1.7,-70.3C15.9,-67.4,31.3,-83.6,44.7,-76.4Z" transform="translate(100 100)" />
-    </svg>
-  </div>
-  <div class="absolute -bottom-20 -right-20 w-80 h-80 opacity-[0.05] pointer-events-none rotate-180">
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#D4AF37" d="M44.7,-76.4C58.1,-69.2,69.2,-58.1,76.4,-44.7C83.7,-31.3,87.1,-15.7,85.8,-0.7C84.6,14.3,78.7,28.6,70.1,41.4C61.5,54.2,50.1,65.6,36.6,72.8C23.1,80,7.5,83.1,-8.3,81.6C-24.1,80.1,-40.1,74,-53.4,63.6C-66.7,53.2,-77.3,38.5,-82.1,22.3C-86.9,6.1,-85.9,-11.6,-79.8,-27.6C-73.7,-43.6,-62.5,-57.9,-48.9,-65.3C-35.3,-72.7,-19.3,-73.2,-1.7,-70.3C15.9,-67.4,31.3,-83.6,44.7,-76.4Z" transform="translate(100 100)" />
-    </svg>
-  </div>
-
-  <div class="max-w-6xl mx-auto text-center relative z-10">
-    
-    <div class="mb-20 relative">
-      <span class="font-primary text-[10px] uppercase tracking-[1em] text-[#D4AF37] block mb-4">The Gallery Of</span>
-      <h2 class="font-secondary text-5xl md:text-7xl text-[#1E293B] relative z-10">
-        Momen <span class="italic font-light text-[#D4AF37]">Bahagia</span>
-      </h2>
-      <div class="absolute left-1/2 -translate-x-1/2 -bottom-6 flex items-center gap-4">
-        <div class="w-20 h-[1px] bg-gradient-to-r from-transparent to-[#D4AF37]"></div>
-        <i class="fas fa-camera text-[#D4AF37] text-xs"></i>
-        <div class="w-20 h-[1px] bg-gradient-to-l from-transparent to-[#D4AF37]"></div>
-      </div>
-    </div>
-    
-<div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 items-center">
-  
-  <div class="group relative pt-10">
-    <div class="absolute inset-0 bg-[#D4AF37]/10 rounded-xl translate-x-3 translate-y-3 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-    <div class="relative overflow-hidden rounded-xl border-4 border-white shadow-2xl aspect-[3/4]">
-      <img src="1.jpeg" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition duration-700 scale-100 group-hover:scale-110" alt="Prewedding 1">
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-    </div>
-  </div>
-
-  <div class="group relative pb-10">
-    <div class="absolute inset-0 bg-[#D4AF37]/10 rounded-xl -translate-x-3 translate-y-3 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-    <div class="relative overflow-hidden rounded-xl border-4 border-white shadow-2xl aspect-[3/4]">
-      <img src="2.jpeg" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition duration-700 scale-100 group-hover:scale-110" alt="Prewedding 2">
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-    </div>
-  </div>
-
-  <div class="group relative pt-20">
-    <div class="absolute inset-0 bg-[#D4AF37]/10 rounded-xl translate-x-3 -translate-y-3 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-    <div class="relative overflow-hidden rounded-xl border-4 border-white shadow-2xl aspect-[3/4]">
-      <img src="3.jpeg" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition duration-700 scale-100 group-hover:scale-110" alt="Prewedding 3">
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-    </div>
-  </div>
-
-  <div class="group relative">
-    <div class="absolute inset-0 bg-[#D4AF37]/10 rounded-xl -translate-x-3 -translate-y-3 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-    <div class="relative overflow-hidden rounded-xl border-4 border-white shadow-2xl aspect-[3/4]">
-      <img src="4.jpeg" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition duration-700 scale-100 group-hover:scale-110" alt="Prewedding 4">
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-    </div>
-  </div>
-
-  <div class="group relative md:mt-[-40px]">
-    <div class="absolute -inset-2 border border-[#D4AF37]/30 rounded-2xl scale-110 group-hover:scale-105 transition-transform duration-700"></div>
-    <div class="relative overflow-hidden rounded-xl border-4 border-white shadow-2xl aspect-[3/4]">
-      <img src="5.jpeg" class="w-full h-full object-cover transition duration-700 scale-100 group-hover:scale-110" alt="Prewedding 5">
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-    </div>
-  </div>
-
-  <div class="group relative pb-20">
-    <div class="absolute inset-0 bg-[#D4AF37]/10 rounded-xl translate-x-3 translate-y-3 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-    <div class="relative overflow-hidden rounded-xl border-4 border-white shadow-2xl aspect-[3/4]">
-      <img src="6.jpeg" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition duration-700 scale-100 group-hover:scale-110" alt="Prewedding 6">
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-    </div>
-  </div>
-
-</div>
-
-    <div class="mt-24 max-w-2xl mx-auto">
-      <div class="flex justify-center mb-6">
-         <div class="h-[1px] w-10 bg-[#D4AF37] self-center"></div>
-         <i class="fas fa-quote-left text-[#D4AF37] mx-4 opacity-40"></i>
-         <div class="h-[1px] w-10 bg-[#D4AF37] self-center"></div>
-      </div>
-      <p class="font-secondary text-2xl md:text-3xl text-[#1E293B] italic leading-relaxed">
-        Cinta bukan tentang mencari orang yang sempurna, tapi belajar melihat ketidaksempurnaan dengan cara yang sempurna.
-      </p>
-    </div>
-  </div>
-</section>
-<section class="fade-in py-24 px-5 bg-[#1E293B] text-white relative overflow-hidden">
-  <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#d4af37 1px, transparent 1px); background-size: 30px 30px;"></div>
-
-  <div class="relative z-10 max-w-4xl mx-auto text-center">
-    <i class="fas fa-quote-right text-4xl text-[#D4AF37] mb-10 opacity-50 block"></i>
-    
-    <p class="text-2xl md:text-3xl leading-[2.5] md:leading-[3] mb-10 font-serif rtl" dir="rtl">
-      وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ
-    </p>
-
-    <h2 class="text-lg md:text-xl font-secondary italic leading-relaxed mb-8 opacity-90 px-4">
-      "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
-    </h2>
-
-    <div class="inline-flex items-center gap-4">
-      <div class="w-8 h-[1px] bg-[#D4AF37]"></div>
-      <p class="text-[#D4AF37] tracking-[0.4em] font-bold uppercase text-xs">
-        QS. Ar-Rum: 21
-      </p>
-      <div class="w-8 h-[1px] bg-[#D4AF37]"></div>
-    </div>
-  </div>
-</section>
-
-<section class="fade-in py-20 px-5 bg-white relative overflow-hidden">
-  
-  <div class="absolute top-0 left-0 opacity-[0.03] pointer-events-none">
-    <i class="fas fa-leaf text-9xl -rotate-45"></i>
-  </div>
-  <div class="absolute bottom-0 right-0 opacity-[0.03] pointer-events-none rotate-180">
-    <i class="fas fa-leaf text-9xl -rotate-45"></i>
-  </div>
-
-  <div class="max-w-3xl mx-auto relative z-10">
-    <div class="flex flex-col items-center mb-12">
-      <h3 class="font-secondary text-3xl text-[#1E293B] mb-2">Turut Mengundang</h3>
-      <div class="flex items-center gap-3">
-        <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
-        <i class="fas fa-heart text-[#D4AF37] text-xs"></i>
-        <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
-      </div>
-    </div>
-    
-    <div class="bg-[#FDFBF7] border border-[#D4AF37]/20 p-8 md:p-12 rounded-[2rem] shadow-sm relative">
-      <div class="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-[#D4AF37]/30 rounded-tl-xl"></div>
-      <div class="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-[#D4AF37]/30 rounded-br-xl"></div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12 text-center md:text-left">
-        <div class="group">
-          <p class="text-[10px] uppercase tracking-widest text-[#D4AF37] mb-1">Keluarga Besar</p>
-          <p class="font-secondary text-lg text-[#1E293B]">Bapak Nama & Ibu Nama</p>
-        </div>
-        
-        <div class="group">
-          <p class="text-[10px] uppercase tracking-widest text-[#D4AF37] mb-1">Keluarga Besar</p>
-          <p class="font-secondary text-lg text-[#1E293B]">Bapak Nama & Ibu Nama</p>
+          <img
+            src="sampul.jpeg"
+            alt="Foto Pasangan"
+            class="w-full h-full object-cover object-top md:object-top transform hover:scale-103 transition-transform duration-1000"
+          />
         </div>
 
-        <div class="group">
-          <p class="text-[10px] uppercase tracking-widest text-[#D4AF37] mb-1">Keluarga Besar</p>
-          <p class="font-secondary text-lg text-[#1E293B]">Seluruh Keluarga Pihak Pria</p>
-        </div>
-
-        <div class="group">
-          <p class="text-[10px] uppercase tracking-widest text-[#D4AF37] mb-1">Keluarga Besar</p>
-          <p class="font-secondary text-lg text-[#1E293B]">Seluruh Keluarga Pihak Wanita</p>
-        </div>
-
-        <div class="md:col-span-2 text-center mt-6 pt-6 border-t border-[#D4AF37]/10">
-          <p class="font-primary italic text-gray-500 text-sm">Segenap Kerabat & Sahabat Karib</p>
+        <div
+          class="absolute -bottom-4 -right-4 bg-[#1E293B] text-white p-4 rounded-full w-20 h-20 flex flex-col items-center justify-center shadow-lg border-2 border-[#D4AF37] floating"
+        >
+          <span class="text-[10px] uppercase tracking-tighter">Mar</span>
+          <span class="text-xl font-bold">20</span>
+          <span class="text-[10px] uppercase tracking-tighter">2026</span>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-  <section class="fade-in py-20 px-5 bg-[#FDFBF7]">
-    <div
-      class="max-w-2xl mx-auto border border-[#D4AF37]/20 p-10 md:p-16 rounded-[3rem] bg-white shadow-2xl relative"
+      <div class="fade-in mt-16 text-center max-w-lg" style="--delay: 0.8s">
+        <p
+          class="text-gray-600 leading-relaxed italic font-secondary text-lg mb-8"
+        >
+          "Menjemput ridho Allah SWT, kami bermaksud mengukir janji suci dalam
+          ikatan pernikahan."
+        </p>
+
+        <div class="inline-flex items-center gap-4 text-[#1E293B]">
+          <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
+          <div
+            class="font-primary tracking-[0.2em] uppercase text-sm font-bold"
+          >
+            Save The Date
+          </div>
+          <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
+        </div>
+
+        <div class="mt-6 text-[#D4AF37] animate-bounce">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-in py-20 px-5 bg-white relative">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 opacity-5">
+        <i class="fas fa-dizzy text-[20rem] text-[#D4AF37]"></i>
+      </div>
+
+      <div class="relative z-10">
+        <h2
+          class="text-4xl md:text-5xl font-secondary font-bold text-[#1E293B] mb-4"
+        >
+          Informasi Acara
+        </h2>
+        <div class="flex justify-center items-center gap-3 mb-12">
+          <div class="h-[1px] w-8 bg-[#D4AF37]"></div>
+          <i class="fas fa-ring text-[#D4AF37]"></i>
+          <div class="h-[1px] w-8 bg-[#D4AF37]"></div>
+        </div>
+
+        <div
+          class="flex flex-col md:flex-row justify-center gap-8 max-w-6xl mx-auto"
+        >
+          <div
+            class="bg-[#FDFBF7] border border-[#D4AF37]/30 flex flex-col items-center p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 group"
+          >
+            <div
+              class="w-16 h-16 bg-[#1E293B] rounded-full flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform"
+            >
+              <i class="fas fa-calendar-day text-2xl text-[#D4AF37]"></i>
+            </div>
+            <h3
+              class="text-xl font-secondary font-bold text-[#1E293B] mb-2 uppercase tracking-widest"
+            >
+              Hari & Tanggal
+            </h3>
+            <p class="text-gray-700 text-lg">Jumat</p>
+            <p class="text-[#D4AF37] font-bold text-xl">20 Maret 2026</p>
+          </div>
+
+          <div
+            class="bg-[#FDFBF7] border border-[#D4AF37]/30 flex flex-col items-center p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 group"
+          >
+            <div
+              class="w-16 h-16 bg-[#1E293B] rounded-full flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform"
+            >
+              <i class="fas fa-clock text-2xl text-[#D4AF37]"></i>
+            </div>
+            <h3
+              class="text-xl font-secondary font-bold text-[#1E293B] mb-2 uppercase tracking-widest"
+            >
+              Waktu Acara
+            </h3>
+            <p class="text-gray-700 text-lg">Pukul 09:00 WIB</p>
+            <p class="text-[#D4AF37] font-bold">Sampai Selesai</p>
+          </div>
+
+          <div
+            class="bg-[#FDFBF7] border border-[#D4AF37]/30 flex flex-col items-center p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 group"
+          >
+            <div
+              class="w-16 h-16 bg-[#1E293B] rounded-full flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform"
+            >
+              <i class="fas fa-map-marked-alt text-2xl text-[#D4AF37]"></i>
+            </div>
+            <h3
+              class="text-xl font-secondary font-bold text-[#1E293B] mb-2 uppercase tracking-widest"
+            >
+              Lokasi Acara
+            </h3>
+            <p class="text-gray-700 text-lg font-bold">
+              Gedung Serbaguna Contoh
+            </p>
+            <p class="text-gray-500 text-sm italic">
+              Jl. Contoh No.123, Jakarta
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-12">
+          <a
+            href="#"
+            target="_blank"
+            class="inline-flex items-center gap-2 bg-[#1E293B] text-[#D4AF37] border border-[#D4AF37] font-semibold py-3 px-10 rounded-full hover:bg-[#D4AF37] hover:text-white transition-all duration-300"
+          >
+            <i class="fas fa-location-arrow"></i> Buka Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-in py-24 px-5 bg-[#FDFBF7] relative overflow-hidden">
+      <div
+        class="absolute -top-20 -left-20 w-80 h-80 opacity-[0.05] pointer-events-none"
+      >
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill="#D4AF37"
+            d="M44.7,-76.4C58.1,-69.2,69.2,-58.1,76.4,-44.7C83.7,-31.3,87.1,-15.7,85.8,-0.7C84.6,14.3,78.7,28.6,70.1,41.4C61.5,54.2,50.1,65.6,36.6,72.8C23.1,80,7.5,83.1,-8.3,81.6C-24.1,80.1,-40.1,74,-53.4,63.6C-66.7,53.2,-77.3,38.5,-82.1,22.3C-86.9,6.1,-85.9,-11.6,-79.8,-27.6C-73.7,-43.6,-62.5,-57.9,-48.9,-65.3C-35.3,-72.7,-19.3,-73.2,-1.7,-70.3C15.9,-67.4,31.3,-83.6,44.7,-76.4Z"
+            transform="translate(100 100)"
+          />
+        </svg>
+      </div>
+      <div
+        class="absolute -bottom-20 -right-20 w-80 h-80 opacity-[0.05] pointer-events-none rotate-180"
+      >
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill="#D4AF37"
+            d="M44.7,-76.4C58.1,-69.2,69.2,-58.1,76.4,-44.7C83.7,-31.3,87.1,-15.7,85.8,-0.7C84.6,14.3,78.7,28.6,70.1,41.4C61.5,54.2,50.1,65.6,36.6,72.8C23.1,80,7.5,83.1,-8.3,81.6C-24.1,80.1,-40.1,74,-53.4,63.6C-66.7,53.2,-77.3,38.5,-82.1,22.3C-86.9,6.1,-85.9,-11.6,-79.8,-27.6C-73.7,-43.6,-62.5,-57.9,-48.9,-65.3C-35.3,-72.7,-19.3,-73.2,-1.7,-70.3C15.9,-67.4,31.3,-83.6,44.7,-76.4Z"
+            transform="translate(100 100)"
+          />
+        </svg>
+      </div>
+
+      <div class="max-w-6xl mx-auto text-center relative z-10">
+        <div class="mb-20 relative">
+          <span
+            class="font-primary text-[10px] uppercase tracking-[1em] text-[#D4AF37] block mb-4"
+            >The Gallery Of</span
+          >
+          <h2
+            class="font-secondary text-5xl md:text-7xl text-[#1E293B] relative z-10"
+          >
+            Momen <span class="italic font-light text-[#D4AF37]">Bahagia</span>
+          </h2>
+          <div
+            class="absolute left-1/2 -translate-x-1/2 -bottom-6 flex items-center gap-4"
+          >
+            <div
+              class="w-20 h-[1px] bg-gradient-to-r from-transparent to-[#D4AF37]"
+            ></div>
+            <i class="fas fa-camera text-[#D4AF37] text-xs"></i>
+            <div
+              class="w-20 h-[1px] bg-gradient-to-l from-transparent to-[#D4AF37]"
+            ></div>
+          </div>
+        </div>
+
+        <div
+          class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 items-center"
+        >
+          <div class="group relative pt-10">
+            <div
+              class="absolute inset-0 bg-[#D4AF37]/10 rounded-xl translate-x-3 translate-y-3 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"
+            ></div>
+            <div
+              class="relative overflow-hidden rounded-xl border-4 border-white shadow-2xl aspect-[3/4]"
+            >
+              <img
+                src="1.jpeg"
+                class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition duration-700 scale-100 group-hover:scale-110"
+                alt="Prewedding 1"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+            </div>
+          </div>
+
+          <div class="group relative pb-10">
+            <div
+              class="absolute inset-0 bg-[#D4AF37]/10 rounded-xl -translate-x-3 translate-y-3 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"
+            ></div>
+            <div
+              class="relative overflow-hidden rounded-xl border-4 border-white shadow-2xl aspect-[3/4]"
+            >
+              <img
+                src="2.jpeg"
+                class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition duration-700 scale-100 group-hover:scale-110"
+                alt="Prewedding 2"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+            </div>
+          </div>
+
+          <div class="group relative pt-20">
+            <div
+              class="absolute inset-0 bg-[#D4AF37]/10 rounded-xl translate-x-3 -translate-y-3 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"
+            ></div>
+            <div
+              class="relative overflow-hidden rounded-xl border-4 border-white shadow-2xl aspect-[3/4]"
+            >
+              <img
+                src="3.jpeg"
+                class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition duration-700 scale-100 group-hover:scale-110"
+                alt="Prewedding 3"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+            </div>
+          </div>
+
+          <div class="group relative">
+            <div
+              class="absolute inset-0 bg-[#D4AF37]/10 rounded-xl -translate-x-3 -translate-y-3 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"
+            ></div>
+            <div
+              class="relative overflow-hidden rounded-xl border-4 border-white shadow-2xl aspect-[3/4]"
+            >
+              <img
+                src="4.jpeg"
+                class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition duration-700 scale-100 group-hover:scale-110"
+                alt="Prewedding 4"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+            </div>
+          </div>
+
+          <div class="group relative md:mt-[-40px]">
+            <div
+              class="absolute -inset-2 border border-[#D4AF37]/30 rounded-2xl scale-110 group-hover:scale-105 transition-transform duration-700"
+            ></div>
+            <div
+              class="relative overflow-hidden rounded-xl border-4 border-white shadow-2xl aspect-[3/4]"
+            >
+              <img
+                src="5.jpeg"
+                class="w-full h-full object-cover transition duration-700 scale-100 group-hover:scale-110"
+                alt="Prewedding 5"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+            </div>
+          </div>
+
+          <div class="group relative pb-20">
+            <div
+              class="absolute inset-0 bg-[#D4AF37]/10 rounded-xl translate-x-3 translate-y-3 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"
+            ></div>
+            <div
+              class="relative overflow-hidden rounded-xl border-4 border-white shadow-2xl aspect-[3/4]"
+            >
+              <img
+                src="6.jpeg"
+                class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition duration-700 scale-100 group-hover:scale-110"
+                alt="Prewedding 6"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-24 max-w-2xl mx-auto">
+          <div class="flex justify-center mb-6">
+            <div class="h-[1px] w-10 bg-[#D4AF37] self-center"></div>
+            <i class="fas fa-quote-left text-[#D4AF37] mx-4 opacity-40"></i>
+            <div class="h-[1px] w-10 bg-[#D4AF37] self-center"></div>
+          </div>
+          <p
+            class="font-secondary text-2xl md:text-3xl text-[#1E293B] italic leading-relaxed"
+          >
+            Cinta bukan tentang mencari orang yang sempurna, tapi belajar
+            melihat ketidaksempurnaan dengan cara yang sempurna.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section
+      class="fade-in py-24 px-5 bg-[#1E293B] text-white relative overflow-hidden"
     >
-      <i class="fas fa-envelope-open-text text-[#D4AF37] text-5xl mb-6"></i>
-      <h2 class="text-4xl font-secondary font-bold text-[#1E293B] mb-4">
-        Konfirmasi Kehadiran
-      </h2>
-      <p class="text-gray-600 mb-10 leading-relaxed">
-        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
-        Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
-      </p>
+      <div
+        class="absolute inset-0 opacity-10"
+        style="
+          background-image: radial-gradient(#d4af37 1px, transparent 1px);
+          background-size: 30px 30px;
+        "
+      ></div>
 
-      <a
-        href="https://t.me/yourusername"
-        target="_blank"
-        class="inline-block bg-[#D4AF37] text-white font-bold py-4 px-12 rounded-xl shadow-lg hover:shadow-2xl hover:bg-[#b8952e] hover:-translate-y-1 transition-all duration-300 text-lg uppercase tracking-widest"
+      <div class="relative z-10 max-w-4xl mx-auto text-center">
+        <i
+          class="fas fa-quote-right text-4xl text-[#D4AF37] mb-10 opacity-50 block"
+        ></i>
+
+        <p
+          class="text-2xl md:text-3xl leading-[2.5] md:leading-[3] mb-10 font-serif rtl"
+          dir="rtl"
+        >
+          وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا
+          لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ
+          اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ
+        </p>
+
+        <h2
+          class="text-lg md:text-xl font-secondary italic leading-relaxed mb-8 opacity-90 px-4"
+        >
+          "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
+          pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung
+          dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa
+          kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat
+          tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
+        </h2>
+
+        <div class="inline-flex items-center gap-4">
+          <div class="w-8 h-[1px] bg-[#D4AF37]"></div>
+          <p
+            class="text-[#D4AF37] tracking-[0.4em] font-bold uppercase text-xs"
+          >
+            QS. Ar-Rum: 21
+          </p>
+          <div class="w-8 h-[1px] bg-[#D4AF37]"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-in py-20 px-5 bg-white relative overflow-hidden">
+      <div class="absolute top-0 left-0 opacity-[0.03] pointer-events-none">
+        <i class="fas fa-leaf text-9xl -rotate-45"></i>
+      </div>
+      <div
+        class="absolute bottom-0 right-0 opacity-[0.03] pointer-events-none rotate-180"
       >
-        Konfirmasi via WhatsApp
-      </a>
+        <i class="fas fa-leaf text-9xl -rotate-45"></i>
+      </div>
 
-      <p class="mt-6 text-xs text-gray-400 italic font-primary">
-        Mohon konfirmasi kehadiran sebelum 10 Maret 2026
+      <div class="max-w-3xl mx-auto relative z-10">
+        <div class="flex flex-col items-center mb-12">
+          <h3 class="font-secondary text-3xl text-[#1E293B] mb-2">
+            Turut Mengundang
+          </h3>
+          <div class="flex items-center gap-3">
+            <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
+            <i class="fas fa-heart text-[#D4AF37] text-xs"></i>
+            <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
+          </div>
+        </div>
+
+        <div
+          class="bg-[#FDFBF7] border border-[#D4AF37]/20 p-8 md:p-12 rounded-[2rem] shadow-sm relative"
+        >
+          <div
+            class="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-[#D4AF37]/30 rounded-tl-xl"
+          ></div>
+          <div
+            class="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-[#D4AF37]/30 rounded-br-xl"
+          ></div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12 text-center md:text-left"
+          >
+            <div class="group">
+              <p
+                class="text-[10px] uppercase tracking-widest text-[#D4AF37] mb-1"
+              >
+                Keluarga Besar
+              </p>
+              <p class="font-secondary text-lg text-[#1E293B]">
+                Bapak Nama & Ibu Nama
+              </p>
+            </div>
+
+            <div class="group">
+              <p
+                class="text-[10px] uppercase tracking-widest text-[#D4AF37] mb-1"
+              >
+                Keluarga Besar
+              </p>
+              <p class="font-secondary text-lg text-[#1E293B]">
+                Bapak Nama & Ibu Nama
+              </p>
+            </div>
+
+            <div class="group">
+              <p
+                class="text-[10px] uppercase tracking-widest text-[#D4AF37] mb-1"
+              >
+                Keluarga Besar
+              </p>
+              <p class="font-secondary text-lg text-[#1E293B]">
+                Seluruh Keluarga Pihak Pria
+              </p>
+            </div>
+
+            <div class="group">
+              <p
+                class="text-[10px] uppercase tracking-widest text-[#D4AF37] mb-1"
+              >
+                Keluarga Besar
+              </p>
+              <p class="font-secondary text-lg text-[#1E293B]">
+                Seluruh Keluarga Pihak Wanita
+              </p>
+            </div>
+
+            <div
+              class="md:col-span-2 text-center mt-6 pt-6 border-t border-[#D4AF37]/10"
+            >
+              <p class="font-primary italic text-gray-500 text-sm">
+                Segenap Kerabat & Sahabat Karib
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-in py-20 px-5 bg-[#FDFBF7]">
+      <div
+        class="max-w-2xl mx-auto border border-[#D4AF37]/20 p-10 md:p-16 rounded-[3rem] bg-white shadow-2xl relative"
+      >
+        <i class="fas fa-envelope-open-text text-[#D4AF37] text-5xl mb-6"></i>
+        <h2 class="text-4xl font-secondary font-bold text-[#1E293B] mb-4">
+          Konfirmasi Kehadiran
+        </h2>
+        <p class="text-gray-600 mb-10 leading-relaxed">
+          Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+          Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
+        </p>
+
+        <a
+          href="https://t.me/yourusername"
+          target="_blank"
+          class="inline-block bg-[#D4AF37] text-white font-bold py-4 px-12 rounded-xl shadow-lg hover:shadow-2xl hover:bg-[#b8952e] hover:-translate-y-1 transition-all duration-300 text-lg uppercase tracking-widest"
+        >
+          Konfirmasi via WhatsApp
+        </a>
+
+        <p class="mt-6 text-xs text-gray-400 italic font-primary">
+          Mohon konfirmasi kehadiran sebelum 10 Maret 2026
+        </p>
+      </div>
+    </section>
+
+    <footer class="py-12 bg-white text-center border-t border-gray-100">
+      <div class="flex justify-center gap-4 mb-6 text-[#D4AF37]">
+        <i
+          class="fab fa-instagram hover:scale-110 transition-transform cursor-pointer"
+        ></i>
+        <i
+          class="fab fa-facebook-f hover:scale-110 transition-transform cursor-pointer"
+        ></i>
+        <i
+          class="fab fa-twitter hover:scale-110 transition-transform cursor-pointer"
+        ></i>
+      </div>
+      <p class="font-secondary text-2xl text-[#1E293B] mb-2">
+        Zen <span class="text-[#D4AF37]">&</span> Srii
       </p>
-    </div>
-  </section>
-
-
-
-  <footer class="py-12 bg-white text-center border-t border-gray-100">
-    <div class="flex justify-center gap-4 mb-6 text-[#D4AF37]">
-      <i
-        class="fab fa-instagram hover:scale-110 transition-transform cursor-pointer"
-      ></i>
-      <i
-        class="fab fa-facebook-f hover:scale-110 transition-transform cursor-pointer"
-      ></i>
-      <i
-        class="fab fa-twitter hover:scale-110 transition-transform cursor-pointer"
-      ></i>
-    </div>
-    <p class="font-secondary text-2xl text-[#1E293B] mb-2">
-      Zen <span class="text-[#D4AF37]">&</span> Srii
-    </p>
-    <p class="text-xs tracking-[0.2em] text-gray-400 uppercase">
-      © 2026 Exclusive Wedding Invitation
-    </p>
-  </footer>
-
+      <p class="text-xs tracking-[0.2em] text-gray-400 uppercase">
+        © 2026 Exclusive Wedding Invitation
+      </p>
+    </footer>
 
     <script>
-      const music = document.getElementById("bg-music");
-      const icon = document.getElementById("music-icon");
-      const overlay = document.getElementById("wedding-overlay");
-      const musicContainer = document.getElementById("music-container");
+// 📍 lib/frontend/wedding_script.js
 
-      // FUNGSI UTAMA: Buka Undangan & Putar Musik
-      function openInvitation() {
-        // Hapus overlay
-        overlay.style.transform = "translateY(-100%)";
-        setTimeout(() => {
-            overlay.style.display = "none";
-            document.body.style.overflow = "auto"; // Izinkan scroll kembali
-            musicContainer.classList.remove("hidden");
-        }, 1000);
+const music = document.getElementById("bg-music");
+const icon = document.getElementById("music-icon");
+const overlay = document.getElementById("wedding-overlay");
+const musicContainer = document.getElementById("music-container");
 
-        // Putar musik
-        music.play().catch(e => console.log("Gagal putar musik:", e));
+// FUNGSI UTAMA: Buka Undangan & Putar Musik
+function openInvitation() {
+  overlay.style.transform = "translateY(-100%)";
+  setTimeout(() => {
+    overlay.style.display = "none";
+    document.body.style.overflow = "auto";
+    musicContainer.classList.remove("hidden");
+    
+    // Trigger animasi untuk section pertama setelah dibuka
+    startReveal();
+  }, 1000);
+
+  music.play().catch((e) => console.log("Autoplay blocked:", e));
+}
+
+// Toggle Play/Pause Musik
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+    icon.classList.replace("fa-music", "fa-pause");
+    icon.classList.add("fa-spin-slow"); // Opsional: tambah animasi putar
+  } else {
+    music.pause();
+    icon.classList.replace("fa-pause", "fa-music");
+    icon.classList.remove("fa-spin-slow");
+  }
+}
+
+// COUNTDOWN LOGIC
+const weddingDate = new Date("Mar 20, 2026 09:00:00").getTime();
+const updateCountdown = () => {
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
+
+  if (distance < 0) {
+    document.getElementById("countdown").innerHTML = "ACARA SUDAH DIMULAI";
+    return;
+  }
+
+  document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+  document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+};
+setInterval(updateCountdown, 1000);
+
+// SCROLL REVEAL ANIMATION (Intersection Observer)
+function startReveal() {
+  const observerOptions = {
+    threshold: 0.15 // Elemen muncul jika 15% bagian sudah masuk layar
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        // Jika pakai class fade-in yang kamu buat tadi:
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
       }
+    });
+  }, observerOptions);
 
-      function toggleMusic() {
-        if (music.paused) {
-          music.play();
-          icon.classList.replace("fa-music", "fa-pause");
-        } else {
-          music.pause();
-          icon.classList.replace("fa-pause", "fa-music");
-        }
-      }
-
-      // COUNTDOWN SCRIPT
-      const weddingDate = new Date("Mar 20, 2026 09:00:00").getTime();
-      setInterval(function () {
-        const now = new Date().getTime();
-        const distance = weddingDate - now;
-        document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-        document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
-        
-      }, 1000);
+  // Daftarkan semua elemen yang ingin di-animasi
+  document.querySelectorAll('.fade-in, .reveal').forEach((el) => {
+    observer.observe(el);
+  });
+}
     </script>
   </body>
 </html>
