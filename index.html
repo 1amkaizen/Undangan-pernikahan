@@ -148,7 +148,7 @@
         </h1>
 
         <div
-          class="flex items-center justify-center gap-6 mb-12 fade-in"
+          class="flex items-center justify-center gap-6 mb-6 fade-in"
           style="animation-delay: 0.6s"
         >
           <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
@@ -166,6 +166,14 @@
             </p>
           </div>
           <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
+        </div>
+
+        <!-- Tambahan teks undangan umum -->
+        <div class="fade-in mb-8" style="animation-delay: 0.8s">
+          <p class="text-[#D4AF37] text-xs md:text-sm italic font-primary">
+            Dengan segala kerendahan hati, kami mengundang Bapak/Ibu/Saudara/i
+            untuk hadir dalam acara pernikahan kami.
+          </p>
         </div>
 
         <div class="fade-in" style="animation-delay: 1s">
@@ -615,6 +623,60 @@
         </div>
       </div>
     </section>
+    <!-- Section Doa & Harapan -->
+    <section class="fade-in py-24 px-5 bg-white relative overflow-hidden">
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 opacity-[0.03] pointer-events-none"
+      >
+        <i class="fas fa-dove text-[15rem] text-[#D4AF37]"></i>
+      </div>
+
+      <div class="max-w-3xl mx-auto relative z-10">
+        <div class="text-center">
+          <div class="flex justify-center items-center gap-4 mb-6">
+            <div
+              class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#D4AF37]"
+            ></div>
+            <i class="fas fa-hands-praying text-[#D4AF37] text-2xl"></i>
+            <div
+              class="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#D4AF37]"
+            ></div>
+          </div>
+
+          <h2 class="font-secondary text-4xl md:text-5xl text-[#1E293B] mb-8">
+            Doa & Harapan
+          </h2>
+
+          <div class="relative p-8 md:p-12">
+            <div
+              class="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-[#D4AF37]/30"
+            ></div>
+            <div
+              class="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-[#D4AF37]/30"
+            ></div>
+
+            <p
+              class="text-gray-600 italic font-secondary text-xl md:text-2xl leading-relaxed"
+            >
+              "Ya Allah, bimbinglah kami untuk selalu melangkah bersama dengan
+              penuh cinta. Jadikanlah keluarga kami keluarga yang
+              <span class="text-[#D4AF37] font-bold">Sakinah</span>,
+              <span class="text-[#D4AF37] font-bold">Mawaddah</span>, dan
+              <span class="text-[#D4AF37] font-bold">Warahmah</span>, serta
+              berkahilah setiap langkah kami dalam ketaatan kepada-Mu."
+            </p>
+
+            <p
+              class="mt-8 font-primary text-sm uppercase tracking-[0.3em] text-[#1E293B] font-bold"
+            >
+              — Aamiin Ya Rabbal Alamin —
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Ayat Al-Qur'an -->
     <section
       class="fade-in py-24 px-5 bg-[#1E293B] text-white relative overflow-hidden"
     >
@@ -801,81 +863,90 @@
     </footer>
 
     <script>
-// 📍 lib/frontend/wedding_script.js
+      // 📍 lib/frontend/wedding_script.js
 
-const music = document.getElementById("bg-music");
-const icon = document.getElementById("music-icon");
-const overlay = document.getElementById("wedding-overlay");
-const musicContainer = document.getElementById("music-container");
+      const music = document.getElementById("bg-music");
+      const icon = document.getElementById("music-icon");
+      const overlay = document.getElementById("wedding-overlay");
+      const musicContainer = document.getElementById("music-container");
 
-// FUNGSI UTAMA: Buka Undangan & Putar Musik
-function openInvitation() {
-  overlay.style.transform = "translateY(-100%)";
-  setTimeout(() => {
-    overlay.style.display = "none";
-    document.body.style.overflow = "auto";
-    musicContainer.classList.remove("hidden");
-    
-    // Trigger animasi untuk section pertama setelah dibuka
-    startReveal();
-  }, 1000);
+      // FUNGSI UTAMA: Buka Undangan & Putar Musik
+      function openInvitation() {
+        overlay.style.transform = "translateY(-100%)";
+        setTimeout(() => {
+          overlay.style.display = "none";
+          document.body.style.overflow = "auto";
+          musicContainer.classList.remove("hidden");
 
-  music.play().catch((e) => console.log("Autoplay blocked:", e));
-}
+          // Trigger animasi untuk section pertama setelah dibuka
+          startReveal();
+        }, 1000);
 
-// Toggle Play/Pause Musik
-function toggleMusic() {
-  if (music.paused) {
-    music.play();
-    icon.classList.replace("fa-music", "fa-pause");
-    icon.classList.add("fa-spin-slow"); // Opsional: tambah animasi putar
-  } else {
-    music.pause();
-    icon.classList.replace("fa-pause", "fa-music");
-    icon.classList.remove("fa-spin-slow");
-  }
-}
-
-// COUNTDOWN LOGIC
-const weddingDate = new Date("Mar 20, 2026 09:00:00").getTime();
-const updateCountdown = () => {
-  const now = new Date().getTime();
-  const distance = weddingDate - now;
-
-  if (distance < 0) {
-    document.getElementById("countdown").innerHTML = "ACARA SUDAH DIMULAI";
-    return;
-  }
-
-  document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-  document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
-};
-setInterval(updateCountdown, 1000);
-
-// SCROLL REVEAL ANIMATION (Intersection Observer)
-function startReveal() {
-  const observerOptions = {
-    threshold: 0.15 // Elemen muncul jika 15% bagian sudah masuk layar
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-        // Jika pakai class fade-in yang kamu buat tadi:
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
+        music.play().catch((e) => console.log("Autoplay blocked:", e));
       }
-    });
-  }, observerOptions);
 
-  // Daftarkan semua elemen yang ingin di-animasi
-  document.querySelectorAll('.fade-in, .reveal').forEach((el) => {
-    observer.observe(el);
-  });
-}
+      // Toggle Play/Pause Musik
+      function toggleMusic() {
+        if (music.paused) {
+          music.play();
+          icon.classList.replace("fa-music", "fa-pause");
+          icon.classList.add("fa-spin-slow"); // Opsional: tambah animasi putar
+        } else {
+          music.pause();
+          icon.classList.replace("fa-pause", "fa-music");
+          icon.classList.remove("fa-spin-slow");
+        }
+      }
+
+      // COUNTDOWN LOGIC
+      const weddingDate = new Date("Mar 20, 2026 09:00:00").getTime();
+      const updateCountdown = () => {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance < 0) {
+          document.getElementById("countdown").innerHTML =
+            "ACARA SUDAH DIMULAI";
+          return;
+        }
+
+        document.getElementById("days").innerText = Math.floor(
+          distance / (1000 * 60 * 60 * 24)
+        );
+        document.getElementById("hours").innerText = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        document.getElementById("minutes").innerText = Math.floor(
+          (distance % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        document.getElementById("seconds").innerText = Math.floor(
+          (distance % (1000 * 60)) / 1000
+        );
+      };
+      setInterval(updateCountdown, 1000);
+
+      // SCROLL REVEAL ANIMATION (Intersection Observer)
+      function startReveal() {
+        const observerOptions = {
+          threshold: 0.15, // Elemen muncul jika 15% bagian sudah masuk layar
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+              // Jika pakai class fade-in yang kamu buat tadi:
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        }, observerOptions);
+
+        // Daftarkan semua elemen yang ingin di-animasi
+        document.querySelectorAll(".fade-in, .reveal").forEach((el) => {
+          observer.observe(el);
+        });
+      }
     </script>
   </body>
 </html>
