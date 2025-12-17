@@ -13,7 +13,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
     <style>
       .font-primary {
         font-family: "Poppins", sans-serif;
@@ -24,16 +27,24 @@
 
       /* Overlay Sampul */
       #wedding-overlay {
-        position: fixed;
-        inset: 0;
-        background: #1e293b;
-        color: white;
-        z-index: 9999;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+        /* Gunakan cubic-bezier untuk gerakan premium (halus di akhir) */
+        transition: all 1.2s cubic-bezier(0.7, 0, 0.3, 1);
+        transform-origin: center;
+      }
+
+      /* Class baru untuk memicu animasi keluar */
+      .overlay-hidden {
+        opacity: 0 !important;
+        transform: scale(1.1); /* Efek zoom out yang mewah */
+        filter: blur(10px); /* Efek blur saat menghilang */
+        pointer-events: none;
+      }
+
+      /* Animasi konten dalam overlay agar tidak hilang kaget */
+      .content-fade-out {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.6s ease;
       }
 
       /* Animasi Tombol Musik */
@@ -130,76 +141,102 @@
         </svg>
       </div>
 
-<div class="relative z-10 text-center px-4 max-w-2xl w-full">
+      <div class="relative z-10 text-center px-4 max-w-2xl w-full">
+        <!-- Judul Undangan -->
+        <h1
+          class="text-8xl md:text-[10rem] text-[#D4AF37] mb-4 fade-in"
+          style="
+            animation-delay: 0.2s;
+            font-family: 'Pinyon Script', cursive;
+            font-weight: 400;
+            line-height: 1.2;
+            padding-bottom: 10px;
+          "
+        >
+          Undangan
+        </h1>
 
-  <!-- Judul Undangan -->
-  <h1 class="text-8xl md:text-[10rem] text-[#D4AF37] mb-4 fade-in"
-      style="animation-delay: 0.2s; font-family: 'Pinyon Script', cursive; font-weight: 400; line-height: 1.2; padding-bottom: 10px;">
-    Undangan
-  </h1>
+        <!-- Bismillah -->
+        <p
+          class="font-primary text-2xl md:text-3xl text-[#D4AF37] mb-6 fade-in italic"
+          style="animation-delay: 0.4s"
+        >
+          بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
+        </p>
 
-  <!-- Bismillah -->
-  <p class="font-primary text-2xl md:text-3xl text-[#D4AF37] mb-6 fade-in italic"
-     style="animation-delay: 0.4s">
-    بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
-  </p>
+        <!-- Undangan umum -->
+        <div class="fade-in mb-8" style="animation-delay: 1.2s">
+          <p class="text-[#D4AF37] text-xs md:text-sm italic font-primary">
+            Dengan segala kerendahan hati, kami mengundang Bapak/Ibu/Saudara/i
+            untuk hadir dalam acara pernikahan kami.
+          </p>
+        </div>
 
-  <!-- Undangan umum -->
-  <div class="fade-in mb-8" style="animation-delay: 1.2s">
-    <p class="text-[#D4AF37] text-xs md:text-sm italic font-primary">
-      Dengan segala kerendahan hati, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan kami.
-    </p>
-  </div>
+        <!-- Nama Pasangan -->
+        <h1
+          class="font-secondary text-6xl md:text-8xl text-white mb-10 leading-none fade-in"
+          style="animation-delay: 0.8s"
+        >
+          Zen <span class="text-[#D4AF37] italic font-light">&</span> Srii
+        </h1>
 
-  <!-- Nama Pasangan -->
-  <h1 class="font-secondary text-6xl md:text-8xl text-white mb-10 leading-none fade-in"
-      style="animation-delay: 0.8s">
-    Zen <span class="text-[#D4AF37] italic font-light">&</span> Srii
-  </h1>
+        <!-- Informasi acara -->
+        <div class="fade-in mb-8" style="animation-delay: 1.2s">
+          <p class="text-[#D4AF37] text-xs md:text-sm italic font-primary">
+            Yang akan dilaksanakan pada:
+          </p>
+        </div>
 
-  <!-- Informasi acara -->
-  <div class="fade-in mb-8" style="animation-delay: 1.2s">
-    <p class="text-[#D4AF37] text-xs md:text-sm italic font-primary">
-      Yang akan dilaksanakan pada:
-    </p>
-  </div>
+        <!-- Tanggal Acara -->
+        <div
+          class="flex items-center justify-center gap-6 mb-6 fade-in"
+          style="animation-delay: 1s"
+        >
+          <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
+          <div class="text-white">
+            <p
+              class="font-secondary text-4xl md:text-5xl font-bold tracking-tighter"
+            >
+              20 <span class="text-[#D4AF37]">/</span> 03
+              <span class="text-[#D4AF37]">/</span> 2026
+            </p>
+            <p
+              class="font-primary text-[10px] uppercase tracking-[0.6em] mt-2 text-[#D4AF37]"
+            >
+              Jumat
+            </p>
+          </div>
+          <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
+        </div>
 
-  <!-- Tanggal Acara -->
-  <div class="flex items-center justify-center gap-6 mb-6 fade-in" style="animation-delay: 1s">
-    <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
-    <div class="text-white">
-      <p class="font-secondary text-4xl md:text-5xl font-bold tracking-tighter">
-        20 <span class="text-[#D4AF37]">/</span> 03 <span class="text-[#D4AF37]">/</span> 2026
-      </p>
-      <p class="font-primary text-[10px] uppercase tracking-[0.6em] mt-2 text-[#D4AF37]">
-        Jumat
-      </p>
-    </div>
-    <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
-  </div>
+        <!-- Undangan umum tambahan -->
+        <div class="fade-in mb-8" style="animation-delay: 1.2s">
+          <p class="text-[#D4AF37] text-xs md:text-sm italic font-primary">
+            Merupakan suatu kehormatan Bapak/Ibu/Saudara/i berkenan hadir untuk
+            memberikan do'a restu kepada kedua mempelai.
+          </p>
+        </div>
 
-  <!-- Undangan umum tambahan -->
-  <div class="fade-in mb-8" style="animation-delay: 1.2s">
-    <p class="text-[#D4AF37] text-xs md:text-sm italic font-primary">
-      Merupakan suatu kehormatan Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do'a restu kepada kedua mempelai.
-    </p>
-  </div>
-
-  <!-- Tombol Buka Undangan -->
-  <div class="fade-in" style="animation-delay: 1.4s">
-    <button onclick="openInvitation()"
-            class="group relative px-12 py-4 bg-[#D4AF37] text-[#1E293B] font-bold rounded-full transition-all duration-500 hover:bg-white hover:scale-105 shadow-[0_0_30px_rgba(212,175,55,0.3)]">
-      <span class="relative z-10 flex items-center gap-3 uppercase tracking-widest text-sm">
-        <i class="fas fa-envelope-open-text text-lg"></i>
-        Buka Undangan
-      </span>
-    </button>
-    <p class="mt-6 text-[10px] text-gray-500 uppercase tracking-widest italic font-primary">
-      Klik untuk membuka
-    </p>
-  </div>
-
-</div>
+        <!-- Tombol Buka Undangan -->
+        <div class="fade-in" style="animation-delay: 1.4s">
+          <button
+            onclick="openInvitation()"
+            class="group relative px-12 py-4 bg-[#D4AF37] text-[#1E293B] font-bold rounded-full transition-all duration-500 hover:bg-white hover:scale-105 shadow-[0_0_30px_rgba(212,175,55,0.3)]"
+          >
+            <span
+              class="relative z-10 flex items-center gap-3 uppercase tracking-widest text-sm"
+            >
+              <i class="fas fa-envelope-open-text text-lg"></i>
+              Buka Undangan
+            </span>
+          </button>
+          <p
+            class="mt-6 text-[10px] text-gray-500 uppercase tracking-widest italic font-primary"
+          >
+            Klik untuk membuka
+          </p>
+        </div>
+      </div>
 
       <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
     </div>
@@ -219,6 +256,7 @@
       </audio>
     </div>
 
+    <!-- SECTION WAKTU -->
     <section
       class="relative overflow-hidden flex flex-col items-center justify-center pt-28 pb-20 px-5 bg-[#FDFBF7]"
     >
@@ -876,17 +914,44 @@
       const musicContainer = document.getElementById("music-container");
 
       // FUNGSI UTAMA: Buka Undangan & Putar Musik
+      // 📍 lib/frontend/logic/overlay.js
+
       function openInvitation() {
-        overlay.style.transform = "translateY(-100%)";
+        const overlay = document.getElementById("wedding-overlay");
+        const container = document.querySelector("#wedding-overlay .relative.z-10");
+        const music = document.getElementById("bg-music");
+        const musicContainer = document.getElementById("music-container");
+      
+        // 1. Animasi konten teks memudar ke atas dulu
+        container.classList.add("content-fade-out");
+      
+        setTimeout(() => {
+          // 2. Overlay utama Zoom Out & Blur
+          overlay.classList.add("overlay-hidden");
+          
+          // 3. Aktifkan scroll body
+          document.body.style.overflow = "auto";
+      
+          // 4. Munculkan tombol musik secara halus
+          musicContainer.classList.remove("hidden");
+          musicContainer.style.opacity = "0";
+          setTimeout(() => {
+            musicContainer.style.transition = "opacity 1s ease";
+            musicContainer.style.opacity = "1";
+          }, 500);
+      
+          // 5. Jalankan reveal section pertama
+          if (typeof startReveal === "function") {
+            startReveal();
+          }
+        }, 300); // Konten teks mulai hilang setelah 0.3 detik
+      
+        // 6. Hapus elemen dari DOM sepenuhnya setelah animasi selesai
         setTimeout(() => {
           overlay.style.display = "none";
-          document.body.style.overflow = "auto";
-          musicContainer.classList.remove("hidden");
-
-          // Trigger animasi untuk section pertama setelah dibuka
-          startReveal();
-        }, 1000);
-
+        }, 1500);
+      
+        // Putar musik
         music.play().catch((e) => console.log("Autoplay blocked:", e));
       }
 
