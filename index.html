@@ -27,24 +27,16 @@
 
       /* Overlay Sampul */
       #wedding-overlay {
-        /* Gunakan cubic-bezier untuk gerakan premium (halus di akhir) */
-        transition: all 1.2s cubic-bezier(0.7, 0, 0.3, 1);
-        transform-origin: center;
-      }
-
-      /* Class baru untuk memicu animasi keluar */
-      .overlay-hidden {
-        opacity: 0 !important;
-        transform: scale(1.1); /* Efek zoom out yang mewah */
-        filter: blur(10px); /* Efek blur saat menghilang */
-        pointer-events: none;
-      }
-
-      /* Animasi konten dalam overlay agar tidak hilang kaget */
-      .content-fade-out {
-        opacity: 0;
-        transform: translateY(-20px);
-        transition: all 0.6s ease;
+        position: fixed;
+        inset: 0;
+        background: #1e293b;
+        color: white;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: transform 1s ease-in-out, opacity 1s ease-in-out;
       }
 
       /* Animasi Tombol Musik */
@@ -112,6 +104,8 @@
         font-family: "Amiri", serif;
       }
     </style>
+
+    
   </head>
   <body
     class="bg-gray-100 min-h-screen font-primary text-center text-gray-800 overflow-hidden"
@@ -914,44 +908,17 @@
       const musicContainer = document.getElementById("music-container");
 
       // FUNGSI UTAMA: Buka Undangan & Putar Musik
-      // 📍 lib/frontend/logic/overlay.js
-
       function openInvitation() {
-        const overlay = document.getElementById("wedding-overlay");
-        const container = document.querySelector("#wedding-overlay .relative.z-10");
-        const music = document.getElementById("bg-music");
-        const musicContainer = document.getElementById("music-container");
-      
-        // 1. Animasi konten teks memudar ke atas dulu
-        container.classList.add("content-fade-out");
-      
-        setTimeout(() => {
-          // 2. Overlay utama Zoom Out & Blur
-          overlay.classList.add("overlay-hidden");
-          
-          // 3. Aktifkan scroll body
-          document.body.style.overflow = "auto";
-      
-          // 4. Munculkan tombol musik secara halus
-          musicContainer.classList.remove("hidden");
-          musicContainer.style.opacity = "0";
-          setTimeout(() => {
-            musicContainer.style.transition = "opacity 1s ease";
-            musicContainer.style.opacity = "1";
-          }, 500);
-      
-          // 5. Jalankan reveal section pertama
-          if (typeof startReveal === "function") {
-            startReveal();
-          }
-        }, 300); // Konten teks mulai hilang setelah 0.3 detik
-      
-        // 6. Hapus elemen dari DOM sepenuhnya setelah animasi selesai
+        overlay.style.transform = "translateY(-100%)";
         setTimeout(() => {
           overlay.style.display = "none";
-        }, 1500);
-      
-        // Putar musik
+          document.body.style.overflow = "auto";
+          musicContainer.classList.remove("hidden");
+
+          // Trigger animasi untuk section pertama setelah dibuka
+          startReveal();
+        }, 1000);
+
         music.play().catch((e) => console.log("Autoplay blocked:", e));
       }
 
@@ -1018,5 +985,7 @@
         });
       }
     </script>
+
+    
   </body>
 </html>
